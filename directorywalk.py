@@ -86,7 +86,7 @@ def findCVDB(info):
     return cvdb
     
     
-def updateComics(scanDir):
+def updateComics(conn, scanDir):
     
     logging.info("Looking for new comics in "+scanDir)
     
@@ -194,7 +194,6 @@ def getComics(conn, scanDate):
             from    comic 
             where   DateAdded > ? 
             order   by Series, Volume, Number
-            limit   110,150
         """, (scanDate,))
     comics = c.fetchall()    
     
@@ -372,7 +371,7 @@ def main():
     
     dbInit(conn=conn)
     
-    updateComics(scanDir)
+    updateComics(conn, scanDir)
     
     newComics = checkNew(conn, scanDate)
     
