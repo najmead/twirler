@@ -11,7 +11,7 @@ import smtplib
 
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-
+## Stuff
 config = configparser.ConfigParser()
 
 config.read('twirler.conf')
